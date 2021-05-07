@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {BreakpointObserver, Breakpoints, BreakpointState} from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { BookService } from 'src/app/services/book.service';
+import { Book } from 'src/app/models/book';
 
 @Component({
   selector: 'app-book-index',
@@ -8,10 +10,11 @@ import {BreakpointObserver, Breakpoints, BreakpointState} from '@angular/cdk/lay
 })
 export class BookIndexComponent implements OnInit {
 
-  constructor( breakpointObserver: BreakpointObserver) { 
+  constructor(private bookService: BookService,
+    breakpointObserver: BreakpointObserver) {
     breakpointObserver.observe([
       Breakpoints.HandsetPortrait
-    ]).subscribe((result:BreakpointState) => {
+    ]).subscribe((result: BreakpointState) => {
       if (result.breakpoints[Breakpoints.HandsetPortrait]) {
         this.colCount = 2
       }
@@ -19,9 +22,13 @@ export class BookIndexComponent implements OnInit {
         this.colCount = 10
       }
     });
-  }
-colCount:number = 10;
+    bookService.getBooks().subscribe(
+      books => this.books = books
+    )
 
+  }
+  colCount: number = 10;
+  books: Book[] = [];
   ngOnInit(): void {
   }
 
