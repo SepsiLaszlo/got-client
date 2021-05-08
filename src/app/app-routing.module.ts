@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
  import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { BookIndexComponent } from './components/book-index/book-index.component';
 import { CharacterDetailsComponent } from './components/character-details/character-details.component';
+import { CharacterIndexComponent } from './components/character-index/character-index.component';
 
 const routes: Routes = [
   { path: '', component: BookIndexComponent },
   { path: 'books', component: BookIndexComponent },
   { path: 'books/:id', component: BookDetailsComponent },
+  { path: 'characters', component: CharacterIndexComponent },
   { path: 'characters/:id', component: CharacterDetailsComponent},
 ];
 

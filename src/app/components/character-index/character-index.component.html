@@ -1,0 +1,7 @@
+<h1>Characters</h1>
+<mat-list>
+    <div routerLink='/characters/{{ character.id }}' *ngFor='let character of characters'>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{ character.name }}</mat-list-item>
+    </div>
+</mat-list>

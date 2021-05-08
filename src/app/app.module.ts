@@ -16,7 +16,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {HttpClientModule} from '@angular/common/http'
 import {MatCardModule} from "@angular/material/card";
 import { BookDetailsComponent } from './components/book-details/book-details.component';
-import { CharacterDetailsComponent } from './components/character-details/character-details.component'
+import { CharacterDetailsComponent } from './components/character-details/character-details.component';
+import { CharacterIndexComponent } from './components/character-index/character-index.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CharacterDetailsComponent } from './components/character-details/charac
     NavigationComponent,
     BookIndexComponent,
     BookDetailsComponent,
-    CharacterDetailsComponent
+    CharacterDetailsComponent,
+    CharacterIndexComponent
   ],
   imports: [
     BrowserModule,

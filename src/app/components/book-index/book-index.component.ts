@@ -10,22 +10,14 @@ import { Book } from 'src/app/models/book';
 })
 export class BookIndexComponent implements OnInit {
 
-  constructor(public bookService: BookService,
-    breakpointObserver: BreakpointObserver) {
-    breakpointObserver.observe([
-      Breakpoints.HandsetPortrait
-    ]).subscribe((result: BreakpointState) => {
-      if (result.breakpoints[Breakpoints.HandsetPortrait]) {
-        this.colCount = 1
-        this.rowWidth = 6
-      }
-      else {
-        this.colCount = 6
-        this.rowWidth = 2.4
-      }
-    });
+  constructor(public bookService: BookService) {
     bookService.getAll().subscribe(
-      books => this.books = books
+      books => {
+        this.books = books
+        this.books.forEach(
+          book => book.id = bookService.getId(book.url)
+        )
+      }
     )
 
   }
