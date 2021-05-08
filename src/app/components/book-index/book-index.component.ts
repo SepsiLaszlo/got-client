@@ -10,7 +10,7 @@ import { Book } from 'src/app/models/book';
 })
 export class BookIndexComponent implements OnInit {
 
-  constructor(private bookService: BookService,
+  constructor(public bookService: BookService,
     breakpointObserver: BreakpointObserver) {
     breakpointObserver.observe([
       Breakpoints.HandsetPortrait
@@ -24,11 +24,12 @@ export class BookIndexComponent implements OnInit {
         this.rowWidth = 2.4
       }
     });
-    bookService.getBooks().subscribe(
+    bookService.getAll().subscribe(
       books => this.books = books
     )
 
   }
+  
   colCount: number = 6;
   rowWidth: number = 2.4;
   books: Book[] = [];

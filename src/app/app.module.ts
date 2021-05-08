@@ -14,13 +14,17 @@ import { MatListModule } from '@angular/material/list';
 import { BookIndexComponent } from './components/book-index/book-index.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {HttpClientModule} from '@angular/common/http'
-import {MatCardModule} from "@angular/material/card"
+import {MatCardModule} from "@angular/material/card";
+import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { CharacterDetailsComponent } from './components/character-details/character-details.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    BookIndexComponent
+    BookIndexComponent,
+    BookDetailsComponent,
+    CharacterDetailsComponent
   ],
   imports: [
     BrowserModule,

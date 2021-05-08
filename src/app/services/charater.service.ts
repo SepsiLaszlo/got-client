@@ -2,35 +2,24 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Book } from '../models/book';
+import { Character } from '../models/character';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class CharaterService {
 
-  booksUrl = "https://www.anapioficeandfire.com/api/books";
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
 
-  }
-
-  getAll(): Observable<Book[]>{
-   return this.http.get<Book[]>(this.booksUrl)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
-
-  get(id:number):Observable<Book>{
-    return this.http.get<Book>(this.booksUrl+`/${id}`)
-    .pipe(
+  characterUrl="https://anapioficeandfire.com/api/characters"
+  get(id:number):Observable<Character>{
+    return this.http.get<Character>(this.characterUrl+`/${id}`).pipe(
       catchError(this.handleError)
-    );
+    )
   }
-
-  getId(url:string){
+  getId(url:string):number{
     let elements = url.split('/')
-    return elements[elements.length -1]
+    return +elements[elements.length -1]
   }
 
   private handleError(error: HttpErrorResponse) {
