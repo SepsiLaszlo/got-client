@@ -7,15 +7,23 @@
     <mat-card-content>
         <h2 class="properties">Properties:</h2>
         <mat-list>
+            <mat-divider></mat-divider>
             <mat-list-item> ISBN: {{ book.isbn }} </mat-list-item>
+            <mat-divider></mat-divider>
             <mat-list-item> Number of pages: {{ book.numberOfPages }} </mat-list-item>
+            <mat-divider></mat-divider>
             <mat-list-item> Publisher: {{ book.publisher }} </mat-list-item>
+            <mat-divider></mat-divider>
             <mat-list-item> Country: {{ book.country }} </mat-list-item>
+            <mat-divider></mat-divider>
             <mat-list-item> Realeased: {{ book.released | date }} </mat-list-item>
         </mat-list>
         <h2 class="properties">Characters:</h2>
         <mat-list>
-            <mat-list-item routerLink="/characters/{{ character.id }}" *ngFor="let character of characters"> {{character.name}} </mat-list-item>
+            <div *ngFor="let character of characters">
+                <mat-divider></mat-divider>
+                <mat-list-item routerLink="/characters/{{ character.id }}"> {{character.name}} </mat-list-item>
+            </div>
         </mat-list>
     </mat-card-content>
     <mat-card-actions>

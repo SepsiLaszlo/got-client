@@ -30,7 +30,7 @@ export class BookService {
 
   getId(url:string){
     let elements = url.split('/')
-    return elements[elements.length -1]
+    return +elements[elements.length -1]
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -12,4 +12,5 @@ export interface Book {
     mediaType: string,
     characters: string[],
     povCharacters: string[],
+    id:number
 }

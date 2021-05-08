@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Book } from 'src/app/models/book';
 import { Character } from 'src/app/models/character';
+import { BookService } from 'src/app/services/book.service';
 import { CharaterService } from 'src/app/services/charater.service';
 
 @Component({
@@ -11,12 +13,27 @@ import { CharaterService } from 'src/app/services/charater.service';
 export class CharacterDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-    private characterService:CharaterService) { }
+    private characterService:CharaterService,
+    private bookService:BookService) { }
 
   character: Character;
+  books:Book[] = [];
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.characterService.get(id).subscribe(character =>this.character=character)
+    this.characterService.get(id).subscribe(
+      character =>{this.character=character
+        character.books.forEach(
+          book_url => {
+            const id = this.bookService.getId(book_url)
+            this.bookService.get(id).subscribe(
+              book => {
+                book.id = id;
+                this.books.push(book)
+              }
+            )
+          }
+        )
+      })
   }
 
 }
