@@ -16,10 +16,12 @@ export class BookIndexComponent implements OnInit {
       Breakpoints.HandsetPortrait
     ]).subscribe((result: BreakpointState) => {
       if (result.breakpoints[Breakpoints.HandsetPortrait]) {
-        this.colCount = 2
+        this.colCount = 1
+        this.rowWidth = 6
       }
       else {
-        this.colCount = 10
+        this.colCount = 6
+        this.rowWidth = 2.4
       }
     });
     bookService.getBooks().subscribe(
@@ -27,7 +29,8 @@ export class BookIndexComponent implements OnInit {
     )
 
   }
-  colCount: number = 10;
+  colCount: number = 6;
+  rowWidth: number = 2.4;
   books: Book[] = [];
   ngOnInit(): void {
   }

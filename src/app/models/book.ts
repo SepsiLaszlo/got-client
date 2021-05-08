@@ -1,5 +1,6 @@
 export interface Book {
     name:string,
     url:string,
-    numberOfPages: number
+    numberOfPages: number,
+    released: string
 }

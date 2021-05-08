@@ -14,7 +14,8 @@ import { MatListModule } from '@angular/material/list';
 import { BookIndexComponent } from './components/book-index/book-index.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {HttpClientModule} from '@angular/common/http'
-import { from } from 'rxjs';
+import {MatCardModule} from "@angular/material/card"
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { from } from 'rxjs';
     MatIconModule,
     MatListModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

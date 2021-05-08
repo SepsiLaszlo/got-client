@@ -4,6 +4,7 @@ import { BookIndexComponent } from './components/book-index/book-index.component
 
 const routes: Routes = [
   { path: '', component: BookIndexComponent },
+  { path: 'books', component: BookIndexComponent },
 ];
 
 @NgModule({
