@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/models/character';
 import { CharaterService } from 'src/app/services/charater.service';
+import { IdService } from 'src/app/services/id.service';
 
 @Component({
   selector: 'app-character-index',
@@ -10,12 +11,13 @@ import { CharaterService } from 'src/app/services/charater.service';
 export class CharacterIndexComponent implements OnInit {
 
   characters: Character[]
-  constructor(private characterService:CharaterService) {
+  constructor(private characterService:CharaterService,
+    idService:IdService) {
     characterService.getAll().subscribe(
       characters=>{
         this.characters = characters
         this.characters.forEach(
-          character=> character.id = characterService.getId(character.url)
+          character=> character.id = idService.get(character.url)
         )
       }
     )

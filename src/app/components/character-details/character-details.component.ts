@@ -4,6 +4,7 @@ import { Book } from 'src/app/models/book';
 import { Character } from 'src/app/models/character';
 import { BookService } from 'src/app/services/book.service';
 import { CharaterService } from 'src/app/services/charater.service';
+import { IdService } from 'src/app/services/id.service';
 
 @Component({
   selector: 'app-character-details',
@@ -14,7 +15,8 @@ export class CharacterDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private characterService:CharaterService,
-    private bookService:BookService) { }
+    private bookService:BookService,
+    private idService: IdService) { }
 
   character: Character;
   books:Book[] = [];
@@ -24,7 +26,7 @@ export class CharacterDetailsComponent implements OnInit {
       character =>{this.character=character
         character.books.forEach(
           book_url => {
-            const id = this.bookService.getId(book_url)
+            const id = this.idService.get(book_url)
             this.bookService.get(id).subscribe(
               book => {
                 book.id = id;

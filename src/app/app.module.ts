@@ -17,7 +17,9 @@ import {HttpClientModule} from '@angular/common/http'
 import {MatCardModule} from "@angular/material/card";
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { CharacterDetailsComponent } from './components/character-details/character-details.component';
-import { CharacterIndexComponent } from './components/character-index/character-index.component'
+import { CharacterIndexComponent } from './components/character-index/character-index.component';
+import { HouseIndexComponent } from './components/house-index/house-index.component';
+import { HouseDetailsComponent } from './components/house-details/house-details.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CharacterIndexComponent } from './components/character-index/character-
     BookIndexComponent,
     BookDetailsComponent,
     CharacterDetailsComponent,
-    CharacterIndexComponent
+    CharacterIndexComponent,
+    HouseIndexComponent,
+    HouseDetailsComponent
   ],
   imports: [
     BrowserModule,

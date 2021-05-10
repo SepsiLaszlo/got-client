@@ -1,0 +1,9 @@
+<h1>Houses</h1>
+
+<mat-list>
+    <div routerLink='/houses/{{house.id}}' *ngFor='let house of houses'>
+        <mat-divider></mat-divider>
+        <mat-list-item>{{ house.name }}</mat-list-item>
+    </div>
+    <mat-divider></mat-divider>
+</mat-list>
