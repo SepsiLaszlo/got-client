@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -14,9 +14,10 @@ export class BookService {
   constructor(private http: HttpClient, private error:ErrorService) {
 
   }
+  params = new HttpParams({fromString: 'pageSize=300'});
 
   getAll(): Observable<Book[]>{
-   return this.http.get<Book[]>(this.booksUrl)
+   return this.http.get<Book[]>(this.booksUrl, {params: this.params})
       .pipe(
         catchError(this.error.handle)
       );

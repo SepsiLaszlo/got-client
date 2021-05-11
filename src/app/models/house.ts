@@ -3,7 +3,7 @@ export interface House {
     url: string,
     name: string,
     reqion: string,
-    words: string[],
-    currentLoard: string,
+    words: string,
+    currentLord: string,
     swornMembers: string[]
 }

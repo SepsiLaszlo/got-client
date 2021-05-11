@@ -1,1 +1,16 @@
-<p>house-details works!</p>
+<h1>Attributes</h1>
+<mat-list *ngIf='house'>
+    <mat-list-item> Name: {{ house.name }} </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item> Region: {{ house.name }} </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>  Words: {{ house.words }} </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item routerLink='/characters/{{ lord.id }}'>  Lord: {{ lord.name }} </mat-list-item>
+    <mat-divider></mat-divider>
+    <div mat-subheader>Members</div>
+    <mat-list-item routerLink='/characters/{{member.id}}' *ngFor="let member of members">
+        <mat-divider></mat-divider>
+        <div mat-line>{{ member.name}}</div>
+    </mat-list-item>
+</mat-list>

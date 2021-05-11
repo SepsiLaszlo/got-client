@@ -16,6 +16,15 @@
             <mat-divider></mat-divider>
           </mat-list>
           <br>
+
+          <h2>Houses</h2>
+          <mat-list >
+            <div *ngFor='let house of houses'>
+                <mat-divider></mat-divider>
+                <mat-list-item routerLink='/houses/{{ house.id }}'>{{ house.name }}</mat-list-item>    
+            </div>
+          </mat-list>
+
           <h2>Books:</h2>
           <mat-list >
             <div *ngFor='let book of books'>

@@ -11,6 +11,6 @@ export interface Character {
     father: string,
     mother: string,
     spouse: string,
-    aligances: string[],
+    allegiances: string[],
     books: string[]
 }
